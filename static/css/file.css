@@ -1,0 +1,52 @@
+@media (max-width: 2000px) {
+    .card-group{
+        padding: 10px 600px 10px;
+    }   
+}
+
+@media (max-width: 1700px) {
+    .card-group{
+        padding: 10px 500px 10px;
+    }   
+}
+
+@media (max-width: 1500px) {
+    .card-group{
+        padding: 10px 400px 10px;
+    }   
+}
+
+@media (max-width: 1300px) {
+    .card-group{
+        padding: 10px 300px 10px;
+    }   
+}
+
+@media (max-width: 1200px) {
+    .card-group{
+        padding: 10px 200px 10px;
+    }   
+}
+
+@media (max-width: 900px) {
+    .card-group{
+        padding: 10px 20% 10px;
+    }   
+}
+
+@media (max-width: 800px) {
+    .card-group{
+        padding: 10px 15% 10px;
+    }   
+}
+
+@media (max-width: 400px) {
+    .card-group{
+        padding: 10px 50px 10px;
+    }    
+}
+
+.buttom-pagenator{
+    padding: 10px 500px 10px;
+}
+

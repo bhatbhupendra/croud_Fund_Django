@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <div class="card-group">
+        <h1>Order Redeem Detail</h1>
+        <div class="card-body">
+            <p>Invested to {{order.order_type}}</p>
+            <p>Name:{{order.name}}</p>
+            <p>Contact:{{order.ph_no}}</p>
+            <p>Code Used:{{order.order_redeem_code}}</p>
+            <p>Status:{{order.status}}</p>
+            <p>Anount:{{order.amount}}</p>
+        </div>
+        <h5>Redeem Now</h5>
+        <form action="{% url 'redeem:redeem-request' %}" method='POST'>
+            {% csrf_token %}
+            {{redeemForm.as_p}}
+            <input type="submit" name="submit">
+
+        </form>
+    </div>
+
+    
+{% endblock body %}

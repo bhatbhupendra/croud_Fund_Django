@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+    <h3 class="card-group">Order Summery</h3>
+    <br>
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+
+            <h5 class="card-title">Total Participated</h5>
+              <div class="card-body">
+                {% for order in order_set %}
+                  <h6 class="card-title">{{order.name}}-<strong>Rs{{order.amount}}</strong></h6>
+                {% endfor %}
+              </div>
+            <p>Total:- 0000</p>
+            <p class="card-text"><small class="text-muted">Event Date {{product.start_date}} to {{product.end_date}}</small></p>
+            <a href="{% url 'products:product_list' %}" class="btn btn-primary">Return to Home</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    <br>
+
+{% endblock body %}
+
+

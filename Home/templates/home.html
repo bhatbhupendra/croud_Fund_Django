@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+    <div class="card-group"> 
+        <h3>Enter Redeem Code:</h3>
+        <form action="{% url 'redeem:redeem-detail' %}" class="form-inline" method="POST">
+            {% csrf_token %}
+            <input type="text" id="code" name="code">
+            <input type="submit" name="Redeem">
+        </form>
+    </div>
+
+    <h3 class="card-group">Investment Plans</h3>
+
+    {% include 'product_list_shortcut.html' %}   
+
+    <h3 class="card-group">News and Articals</h3>
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{post.name}}</h5>
+            <p class="card-text">{{post.description}}</p>
+            <a href="{% url 'posts:post_detail' post.slug %}" class="btn btn-primary">Read More</a>
+            <p class="card-text"><small class="text-muted">Last updated {{post.date}}</small></p>
+          </div>
+        </div>
+      </div>
+    <br>
+    <h3 class="card-group">
+        <a href="{% url 'posts:post_list' %}" class="btn btn-primary">More News</a>
+    </h3>
+
+
+{% endblock body %}

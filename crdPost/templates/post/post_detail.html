@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="card-group">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{post.name}}</h5>
+            <img class="card-img-top" src="{{post.image.url}}" alt="Card image cap">
+            <p class="card-text"><small class="text-muted">#{{post.category}}</small></p>
+            <p class="card-text">{{post.description}}</p>
+            <p class="card-text"><small class="text-muted">Last updated {{post.date}}</small></p>
+          </div>
+        </div>
+      </div>
+{% endblock %}
+

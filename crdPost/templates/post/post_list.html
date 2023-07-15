@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+    {% for post in post_list %}
+    <br>
+
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{post.name}}</h5>
+            <p class="card-text">{{post.description}}</p>
+            <a href="{% url 'posts:post_detail' post.slug %}" class="btn btn-primary">Read More</a>
+            <p class="card-text"><small class="text-muted">Last updated {{post.date}}</small></p>
+          </div>
+        </div>
+      </div>
+
+    <br>
+    {% endfor %}
+
+    
+
+    <nav aria-label="...">
+      <div class="bottom-paginator card-group">
+        {% if post_list.has_other_pages %}
+          <ul class="pagination">
+
+            {% if post_list.has_previous %}
+              <li class="page-item prev">
+                <a class="page-link" href="?page={{post_list.previous_page_number}}">Previous</a>
+              </li>
+            {% else %}
+              <li class="disabled"></li>
+            {% endif %}
+
+
+            {% for pages in post_list.paginator.page_range %}
+              {% if post_list.number == pages %}
+                 <li class="page-item active"><a class="page-link" href="#">{{pages}}</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{pages}}">{{pages}}</a></li>
+              {% endif %}
+            {% endfor %}
+                    
+
+            {% if post_list.has_next %}
+              <li class="page-item next">
+                <a class="page-link" href="?page={{post_list.next_page_number}}">Next</i></a>
+              </li>
+            {% else %}
+              <li class="disabled"></li>
+            {% endif %}
+
+          </ul>
+        {% endif %}  
+      </div>  
+    </nav>
+
+{% endblock %}
+
+
+
+

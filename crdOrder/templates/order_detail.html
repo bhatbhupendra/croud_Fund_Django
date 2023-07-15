@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+  {% include 'terms_condn.html' %}
+  {% include 'payment_detail.html' %}
+    <h3 id="textChanging" class="card-group">Place Order</h3>
+    <br>
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <a href="{% url 'products:product_list' %}" class="btn btn-primary">Return to Product List</a>
+            <p class="card-text"><small class="text-muted">Event Date {{product.start_date}} to {{product.end_date}}</small></p>
+
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" name="submit">
+            </form>
+          </div>
+        </div>
+      </div>
+    <br>
+{% endblock %}
+
